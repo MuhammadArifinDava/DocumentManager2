@@ -1,0 +1,12 @@
+<!-- app/src/main/res/menu/detail_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_print"
+        android:title="@string/print"
+        android:icon="@drawable/ic_print_24"
+        app:showAsAction="ifRoom" />
+
+    <!-- item lain… -->
+</menu>

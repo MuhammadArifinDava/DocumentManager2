@@ -1,0 +1,5 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24">
+    <!-- bentuk handset sederhana -->
+    <path android:strokeColor="@color/icon_tint" android:strokeWidth="2" android:strokeLineCap="round" android:fillColor="@android:color/transparent" android:pathData="M6,4 C10,8 14,12 18,16 L16,18 C12,14 8,10 4,6 Z"/>
+    <path android:strokeColor="@color/icon_tint" android:strokeWidth="2" android:strokeLineCap="round" android:pathData="M15,5 L19,9"/>
+</vector>

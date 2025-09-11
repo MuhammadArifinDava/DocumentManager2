@@ -1,0 +1,8 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24">
+    <!-- user 1 -->
+    <path android:strokeColor="@color/icon_tint" android:strokeWidth="2" android:fillColor="@android:color/transparent" android:pathData="M8,7 m -2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0"/>
+    <path android:strokeColor="@color/icon_tint" android:strokeWidth="2" android:fillColor="@android:color/transparent" android:pathData="M3,20 C3,17 6,16 8,16 C10,16 13,17 13,20"/>
+    <!-- user 2 -->
+    <path android:strokeColor="@color/icon_tint" android:strokeWidth="2" android:fillColor="@android:color/transparent" android:pathData="M16,9 m -2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0"/>
+    <path android:strokeColor="@color/icon_tint" android:strokeWidth="2" android:fillColor="@android:color/transparent" android:pathData="M13,20 C13,17.5 15,16.8 16.5,16.5 C18,16.2 21,17.5 21,20"/>
+</vector>

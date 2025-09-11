@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:radius="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Image Container -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+            <!-- Image View -->
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="@color/image_placeholder"
+                android:foreground="?android:attr/selectableItemBackground"
+                tools:src="@drawable/ic_image_placeholder" />
+
+            <!-- Delete Button -->
+            <ImageView
+                android:id="@+id/btnDelete"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_delete_button"
+                android:src="@drawable/ic_close"
+                android:padding="6dp"
+                android:contentDescription="Delete Image"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+            <!-- Image Type Badge -->
+            <TextView
+                android:id="@+id/tvImageType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_type_badge"
+                android:text="JPG"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:padding="4dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="JPG" />
+
+        </FrameLayout>
+
+        <!-- Image Name -->
+        <TextView
+            android:id="@+id/tvImageName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="image_name.jpg"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:padding="12dp"
+            android:textAlignment="center"
+            android:maxLines="2"
+            android:ellipsize="middle"
+            tools:text="document_image_123.jpg" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

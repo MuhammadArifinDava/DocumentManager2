@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "9529833828",
+    "project_id": "dokumen-afba4",
+    "storage_bucket": "dokumen-afba4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9529833828:android:14a9f7951fda489c1e2271",
+        "android_client_info": {
+          "package_name": "com.epic.documentmanager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdlXvC1sP1PwqQLXsRKO8VJuwgkVGrQbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

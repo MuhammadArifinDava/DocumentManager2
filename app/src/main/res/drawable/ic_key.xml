@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Kepala kunci (lingkaran) -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/icon_tint"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M8,10 m -3,0 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" />
+    <!-- Batang kunci -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/icon_tint"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M11,10 L20,10" />
+    <!-- Gigi kunci -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/icon_tint"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M18,10 L18,13 L16,13" />
+</vector>

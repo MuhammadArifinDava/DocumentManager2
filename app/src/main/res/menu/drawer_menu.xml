@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_upload"
+            android:title="Upload Dokumen"
+            android:icon="@drawable/ic_upload" />
+
+        <item
+            android:id="@+id/menu_list"
+            android:title="Lihat Dokumen"
+            android:icon="@drawable/ic_documents" />
+
+        <item
+            android:id="@+id/nav_monthly_report"
+            android:title="Laporan Bulanan"
+            android:icon="@drawable/ic_report" />
+
+
+        <!-- admin only -->
+        <item
+            android:id="@+id/menu_staff"
+            android:title="Kelola Akun Staff"
+            android:icon="@drawable/ic_manage_users" />
+    </group>
+
+    <group android:title="Akun">
+        <item
+            android:id="@+id/menu_settings"
+            android:title="Pengaturan Akun"
+            android:icon="@drawable/ic_settings" />
+
+        <item
+            android:id="@+id/menu_logout"
+            android:title="Logout"
+            android:icon="@drawable/ic_logout" />
+    </group>
+</menu>

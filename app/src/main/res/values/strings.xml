@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Document Konsumen</string>
+
+    <!-- Navigation -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Menu Items -->
+    <string name="nav_upload_document">Upload Dokumen</string>
+    <string name="nav_view_documents">Lihat Dokumen</string>
+    <string name="nav_search_documents">Cari Dokumen</string>
+    <string name="nav_monthly_report">Laporan Bulanan</string>
+    <string name="nav_manage_users">Kelola Pengguna</string>
+    <string name="nav_account_settings">Pengaturan Akun</string>
+    <string name="nav_logout">Logout</string>
+
+    <!-- Titles -->
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_upload_document">Upload Dokumen</string>
+    <string name="title_document_list">Daftar Dokumen</string>
+    <string name="title_document_detail">Detail Dokumen</string>
+    <string name="title_edit_document">Edit Dokumen</string>
+    <string name="title_search_document">Cari Dokumen</string>
+    <string name="title_monthly_report">Laporan Bulanan</string>
+    <string name="title_account_settings">Pengaturan Akun</string>
+
+    <!-- Document Types -->
+    <string name="doc_type_pembelian_rumah">Pembelian Rumah</string>
+    <string name="doc_type_renovasi_rumah">Renovasi Rumah</string>
+    <string name="doc_type_pemasangan_ac">Pemasangan AC</string>
+    <string name="doc_type_pemasangan_cctv">Pemasangan CCTV</string>
+
+    <!-- Form Labels -->
+    <string name="label_required">*</string>
+    <string name="hint_name">Nama Lengkap</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_phone">No. Telepon</string>
+    <string name="hint_address">Alamat</string>
+    <string name="hint_nik">NIK (16 digit)</string>
+    <string name="hint_npwp">NPWP</string>
+
+    <!-- Buttons -->
+    <string name="btn_login">Login</string>
+    <string name="btn_register">Register</string>
+    <string name="btn_save">Simpan</string>
+    <string name="btn_cancel">Batal</string>
+    <string name="btn_delete">Hapus</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_add_image">Tambah Gambar</string>
+    <string name="btn_generate_report">Generate Laporan</string>
+
+    <!-- Messages -->
+    <string name="msg_loading">Loading...</string>
+    <string name="msg_no_documents">Tidak ada dokumen</string>
+    <string name="msg_no_search_results">Tidak ada hasil pencarian</string>
+    <string name="msg_upload_success">Upload berhasil</string>
+    <string name="msg_upload_failed">Upload gagal</string>
+    <string name="msg_delete_confirm">Apakah Anda yakin ingin menghapus?</string>
+    <string name="msg_logout_confirm">Apakah Anda yakin ingin logout?</string>
+
+    <!-- Validation Messages -->
+    <string name="error_field_required">Field ini wajib diisi</string>
+    <string name="error_invalid_email">Format email tidak valid</string>
+    <string name="error_invalid_phone">Format nomor telepon tidak valid</string>
+    <string name="error_invalid_nik">NIK harus 16 digit</string>
+    <string name="error_password_mismatch">Password tidak sama</string>
+    <string name="error_minimum_password">Password minimal 6 karakter</string>
+
+    <!-- File Provider -->
+    <string name="file_provider_authority">com.yourpackage.documentmanager.fileprovider</string>
+
+    <string name="print">Cetak</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Hapus</string>
+    <string name="download_pdf">Unduh PDF</string>
+    <string name="share">Bagikan</string>
+
+    <string name="update_document">Update Dokumen</string>
+    <string name="simpan">Simpan</string>
+    <string name="update_dokumen">Update Dokumen</string>
+
+    <string name="attachment">Lampiran</string>
+    <string name="remove">Hapus</string>
+    <string name="cd_add_staff">Tambah akun staff</string>
+
+
+</resources>

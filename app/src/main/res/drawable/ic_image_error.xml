@@ -1,0 +1,15 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24"
+    android:tint="?attr/colorError">
+    <!-- kotak -->
+<path android:fillColor="@android:color/transparent"
+    android:pathData="M3,3h18v18H3z"/>
+<path android:fillColor="#FFE0E0"
+android:pathData="M4,4h16v16H4z"/>
+    <!-- tanda seru -->
+<path android:fillColor="#D32F2F"
+android:pathData="M11,7h2v7h-2z"/>
+<path android:fillColor="#D32F2F"
+android:pathData="M11,16h2v2h-2z"/>
+    </vector>

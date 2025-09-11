@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_staff_graph"
+    app:startDestination="@id/staffListFragment">
+
+    <fragment
+        android:id="@+id/staffListFragment"
+        android:name="com.epic.documentmanager.ui.staff.StaffListFragment"
+        android:label="Kelola Akun Staff"
+        tools:layout="@layout/fragment_staff_list">
+        <action
+            android:id="@+id/action_to_staffForm"
+            app:destination="@id/staffFormFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/staffFormFragment"
+        android:name="com.epic.documentmanager.ui.staff.StaffFormFragment"
+        android:label="Form Staff"
+        tools:layout="@layout/fragment_staff_form">
+        <argument
+            android:name="uid"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>
