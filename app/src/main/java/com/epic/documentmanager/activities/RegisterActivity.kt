@@ -1,3 +1,4 @@
+// app/src/main/java/com/epic/documentmanager/activities/RegisterActivity.kt
 package com.epic.documentmanager.activities
 
 import android.content.Intent
@@ -6,18 +7,15 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.epic.documentmanager.R
 import com.epic.documentmanager.utils.Constants
 import com.epic.documentmanager.utils.ValidationUtils
 import com.epic.documentmanager.viewmodels.AuthViewModel
-import com.google.firebase.auth.FirebaseAuth
-import com.epic.documentmanager.data.repository.StaffRepository
-import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var authViewModel: AuthViewModel
+
     private lateinit var etFullName: EditText
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
@@ -59,44 +57,29 @@ class RegisterActivity : AppCompatActivity() {
             Constants.ROLE_MANAGER,
             Constants.ROLE_ADMIN
         )
-
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, roles)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerRole.adapter = adapter
+        spinnerRole.setSelection(0)
     }
 
     private fun setupObservers() {
         authViewModel.registerResult.observe(this) { result ->
             if (result.isSuccess) {
                 val user = result.getOrNull()
-                user?.let {
-                    Toast.makeText(this, "Registrasi berhasil! Selamat datang ${it.fullName}", Toast.LENGTH_SHORT).show()
-
-                    // === KLAIM UNDANGAN (NO-FUNCTIONS MODE) ===
-                    val auth = FirebaseAuth.getInstance()
-                    val uid = auth.currentUser?.uid
-                    val email = auth.currentUser?.email
-                    if (!uid.isNullOrBlank() && !email.isNullOrBlank()) {
-                        lifecycleScope.launch {
-                            try {
-                                StaffRepository().claimInviteIfExists(uid, email)
-                            } catch (_: Throwable) {
-                                // optional: log/abaikan
-                            } finally {
-                                // Navigate to dashboard
-                                startActivity(Intent(this@RegisterActivity, DashboardActivity::class.java))
-                                finish()
-                            }
-                        }
-                    } else {
-                        // fallback
-                        val intent = Intent(this, DashboardActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                }
+                Toast.makeText(
+                    this,
+                    "Registrasi berhasil! Selamat datang ${user?.fullName ?: ""}",
+                    Toast.LENGTH_SHORT
+                ).show()
+                startActivity(Intent(this, DashboardActivity::class.java))
+                finish()
             } else {
-                Toast.makeText(this, "Registrasi gagal: ${result.exceptionOrNull()?.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Registrasi gagal: ${result.exceptionOrNull()?.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -136,9 +119,6 @@ class RegisterActivity : AppCompatActivity() {
             return
         }
 
-        // Catatan: role dari spinner hanya dipakai jika kamu tetap pakai skema lama.
-        // Pada skema undangan, role berasal dari dokumen "invites" (dibuat admin).
-        authViewModel.register(fullName, email, password)
-
+        authViewModel.register(fullName, email, password, role)
     }
 }

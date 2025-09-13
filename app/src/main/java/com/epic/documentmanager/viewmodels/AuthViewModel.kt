@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.epic.documentmanager.data.mappers.User
+import com.epic.documentmanager.utils.FirebaseUtils.firestore
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -122,28 +123,34 @@ class AuthViewModel(
     }
 
     // ====== Register ======
-    fun register(fullName: String, email: String, password: String) = viewModelScope.launch {
-        _loading.value = true
-        try {
-            val res = auth.createUserWithEmailAndPassword(email, password).await()
-            val uid = res.user?.uid ?: throw IllegalStateException("Auth user null")
-            db.collection("users").document(uid).set(
-                mapOf(
+    fun register(fullName: String, email: String, password: String, role: String) {
+        _loading.postValue(true)
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnSuccessListener { result ->
+                val uid = result.user?.uid ?: ""
+                val userDoc = mapOf(
                     "uid" to uid,
+                    "fullName" to fullName,
                     "email" to email,
-                    "name" to fullName,
-                    "role" to "staff",
-                    "isActive" to true
+                    "role" to role,
+                    "status" to "active",
+                    "createdAt" to com.google.firebase.Timestamp.now()
                 )
-            ).await()
-            val user = loadProfile(uid, email) ?: mapUser(uid, null, email)
-            _currentUser.value = user
-            _registerResult.value = Result.success(user)
-        } catch (t: Throwable) {
-            _registerResult.value = Result.failure(t)
-        } finally {
-            _loading.value = false
-        }
+                firestore.collection("users").document(uid)
+                    .set(userDoc)
+                    .addOnSuccessListener {
+                        _registerResult.postValue(Result.success(User(uid, fullName, email, role)))
+                        _loading.postValue(false)
+                    }
+                    .addOnFailureListener { e ->
+                        _registerResult.postValue(Result.failure(e))
+                        _loading.postValue(false)
+                    }
+            }
+            .addOnFailureListener { e ->
+                _registerResult.postValue(Result.failure(e))
+                _loading.postValue(false)
+            }
     }
 
     // ====== Ganti Password (digunakan di AccountSettings) ======
