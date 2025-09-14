@@ -23,7 +23,7 @@ class UploadDocumentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upload_document)
 
-        // Toolbar opsional: kalau tidak ada di layout tidak bikin crash
+        // Toolbar opsional
         findViewById<MaterialToolbar?>(R.id.toolbar)?.let { tb ->
             setSupportActionBar(tb)
             tb.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
@@ -33,9 +33,11 @@ class UploadDocumentActivity : AppCompatActivity() {
             title = "Upload Dokumen"
         }
 
-        // Wajib ada di layout berikut ID-nya
         tabLayout = findViewById(R.id.tabLayout)
         viewPager = findViewById(R.id.viewPager)
+
+        // Penting: simpan 4 fragment sekaligus supaya upload tidak terputus saat geser tab
+        viewPager.offscreenPageLimit = 4
 
         viewPager.adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount(): Int = 4
@@ -45,6 +47,16 @@ class UploadDocumentActivity : AppCompatActivity() {
                 2 -> PemasanganACFragment()
                 else -> PemasanganCCTVFragment()
             }
+
+            // Stabilkan ID agar Fragment tidak dibuat ulang tanpa perlu
+            override fun getItemId(position: Int): Long = when (position) {
+                0 -> 100L
+                1 -> 200L
+                2 -> 300L
+                else -> 400L
+            }
+            override fun containsItem(itemId: Long): Boolean =
+                itemId == 100L || itemId == 200L || itemId == 300L || itemId == 400L
         }
 
         TabLayoutMediator(tabLayout, viewPager) { tab, pos ->
